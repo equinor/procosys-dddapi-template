@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ResponsibleCommands\**" />
+    <EmbeddedResource Remove="ResponsibleCommands\**" />
+    <None Remove="ResponsibleCommands\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.1" />
+    <PackageReference Include="MediatR" Version="8.0.0" />
+    <PackageReference Include="ServiceResult" Version="1.0.1" />
+    <PackageReference Include="System.Text.Json" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Equinor.Procosys.DDDAPI.Domain\Equinor.Procosys.DDDAPI.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

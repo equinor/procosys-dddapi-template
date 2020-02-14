@@ -1,0 +1,11 @@
+version: "3"
+
+services: 
+  api:
+    container_name: dddapiapi
+    image: dddapiapi
+    build:
+      context: .
+      dockerfile: Equinor.Procosys.DDDAPI.WebApi/Dockerfile
+    ports:
+      - "8080:80"
