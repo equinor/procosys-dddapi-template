@@ -5,7 +5,6 @@ Template for creating a REST API solution using DDD
 dotnet new -i <package>
 ```
 ## Creating a new solution
-Run
 ```console
 dotnet new dddapi -n <SolutionName>
 ```
