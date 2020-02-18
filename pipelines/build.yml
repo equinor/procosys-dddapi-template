@@ -21,7 +21,7 @@ stages:
   displayName: 'Pack and Publish displayName'
 
   jobs:
-  - deployment: 'Pack and publish NuGet package'
+  - deployment: 'pack_and_publish'
     pool: 
       vmImage: 'ubuntu-latest'
     environment: 'pcs-dddapi-template'
