@@ -20,24 +20,24 @@ stages:
 - stage: 'Pack and Publish stage'
   displayName: 'Pack and Publish displayName'
 
-jobs:
-  - deployment: 'Pack and publish NuGet package'
-    pool: 
-      vmImage: 'ubuntu-latest'
-    environment: ''
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: self
-          - task: DotNetCoreCLI@2
-            inputs:
-              command: 'pack'
-              packagesToPack: 'templatepack.csproj'
-              versioningScheme: 'off'
-          #- task: DotNetCoreCLI@2
-            #inputs:
-              #command: 'push'
-              #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-              #nuGetFeedType: 'internal'
-              #publishVstsFeed: $(NuGetFeedId)
+  jobs:
+      - deployment: 'Pack and publish NuGet package'
+      pool: 
+          vmImage: 'ubuntu-latest'
+      environment: ''
+      strategy:
+          runOnce:
+          deploy:
+              steps:
+              - checkout: self
+              - task: DotNetCoreCLI@2
+              inputs:
+                  command: 'pack'
+                  packagesToPack: 'templatepack.csproj'
+                  versioningScheme: 'off'
+              #- task: DotNetCoreCLI@2
+              #inputs:
+                  #command: 'push'
+                  #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+                  #nuGetFeedType: 'internal'
+                  #publishVstsFeed: $(NuGetFeedId)
