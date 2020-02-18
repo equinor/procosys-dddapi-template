@@ -17,13 +17,14 @@ variables:
 
 stages:
 # common stage.
-- stage: 'Pack and Publish stage'
+- stage: 'pack_and_publish'
   displayName: 'Pack and Publish displayName'
 
   jobs:
   - deployment: 'Pack and publish NuGet package'
     pool: 
       vmImage: 'ubuntu-latest'
+    environment: 'pcs-dddapi-template'
     strategy:
       runOnce:
         deploy:
