@@ -24,7 +24,6 @@ stages:
   - deployment: 'Pack and publish NuGet package'
     pool: 
       vmImage: 'ubuntu-latest'
-    environment: ''
     strategy:
       runOnce:
         deploy:
