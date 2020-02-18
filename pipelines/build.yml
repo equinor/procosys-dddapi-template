@@ -6,7 +6,7 @@ trigger:
 resources:
   repositories:
   - repository: self
-  - repository: template
+  - repository: templates
     name: equinor/procosys-preservation-infra
     type: github
     endpoint: 'Preservation - Frontend'
