@@ -1,0 +1,43 @@
+trigger:
+  branches:
+    include:
+      - master
+
+resources:
+  repositories:
+  - repository: self
+  - repository: template
+    name: equinor/procosys-preservation-infra
+    type: github
+    endpoint: 'Preservation - Frontend'
+
+# Global variables for the pipeline
+variables:
+ - template: templates/variables/dddapi-template-variables.yml@templates
+
+stages:
+# common stage.
+- stage: 'Pack and Publish stage'
+  displayName: 'Pack and Publish displayName'
+
+jobs:
+  - deployment: 'Pack and publish NuGet package'
+    pool: 
+      vmImage: 'ubuntu-latest'
+    environment: ''
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'pack'
+              packagesToPack: 'templatepack.csproj'
+              versioningScheme: 'off'
+          #- task: DotNetCoreCLI@2
+            #inputs:
+              #command: 'push'
+              #packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+              #nuGetFeedType: 'internal'
+              #publishVstsFeed: $(NuGetFeedId)
